@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:bootstrap="http://www.thymeleaf.org/thymeleaf-extras-bootstrap4">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Revisão</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css"/>
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <h1 class="text-danger">Adicionar Review</h1>
+
+    <form th:action="@{/hq/saveReview}" method="post">
+        <input type="hidden" th:field="*{hq.id}">
+        <div class="mb-3">
+            <label for="review" class="form-label">Review:</label>
+            <textarea class="form-control" id="review" th:field="*{hq.review}"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Salvar Review</button>
+    </form>
+</div>
+</body>
+</html>

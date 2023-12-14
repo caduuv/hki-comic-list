@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:bootstrap="http://www.thymeleaf.org/thymeleaf-extras-bootstrap4">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de HQs</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/webjars/font-awesome/5.15.3/css/all.min.css"/>
+    <style>
+        .navbar {
+            background-color: #dc3545; /* Cor de fundo da barra superior, ajuste conforme necessário */
+            color: #fff; /* Cor do texto na barra superior */
+        }
+        .navbar-brand {
+            font-size: 1.5rem; /* Tamanho do texto da marca na barra superior */
+            font-weight: bold;
+        }
+        .navbar-text {
+            font-size: 1.2rem;
+            font-color: #FFFFFF
+            font-weight: bold;
+            margin-top: 40px;
+        }
+        .card-read {
+            background-color: #f0f0f0; /* Altere conforme necessário */
+        }
+        .add-button {
+            margin-bottom: 30px;
+        }
+        .status-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">HKÍ</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <span class="navbar-text me-2" th:text="${username}"></span>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-light" th:href="@{/logout}">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h1 class="text-danger">Lista de HQs</h1>
+    <div class="row add-button">
+        <a th:href="@{/hq/add}" class="btn btn-danger mt-3"><i class="fas fa-plus"></i></a>
+    </div>
+    <div class="row">
+        <div th:each="hq : ${hqs}" class="col-md-4 mb-4">
+            <div th:classappend="${hq.read} ? 'card card-read' : 'card'">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${hq.title}"></h5>
+                    <p class="card-text" th:text="${hq.author}"></p>
+                    <a th:href="@{/hq/{id}(id=${hq.id})}" class="btn btn-danger">Detalhes</a>
+                    <div class="status-icon">
+                        <a th:href="@{/hq/toggle-read/{id}(id=${hq.id})}" class="btn btn-info">
+                            <i th:class="${hq.read} ? 'fas fa-check-circle' : 'far fa-circle'"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

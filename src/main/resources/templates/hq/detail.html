@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:bootstrap="http://www.thymeleaf.org/thymeleaf-extras-bootstrap4">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${hq.title}"></title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css"/>
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <h1 class="text-danger" th:text="${hq.title}"></h1>
+    <p class="lead" th:text="${hq.author}"></p>
+    <h3>Sinopse</h3>
+    <p th:text="${hq.synopsis}"></p>
+    <h3>Review</h3>
+    <p th:text="${hq.review}"></p>
+    <p th:text="${hq.read} ? 'Lida' : 'Não lida'" class="mb-3"></p>
+    <a th:href="@{/hq/list}" class="btn btn-secondary">Voltar para a lista de HQs</a>
+    <a th:href="@{/hq/delete/{id}(id=${hq.id})}" class="btn btn-danger ms-2" onclick="return confirm('Tem certeza que deseja apagar esta HQ?')">Apagar</a>
+    <a th:href="@{/hq/edit/{id}(id=${hq.id})}" class="btn btn-warning">Editar</a>
+</div>
+</body>
+</html>

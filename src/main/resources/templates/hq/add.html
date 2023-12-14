@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:bootstrap="http://www.thymeleaf.org/thymeleaf-extras-bootstrap4">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar HQ</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css"/>
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <h1 class="text-danger">Adicionar HQ</h1>
+    <form th:action="@{/hq/add}" th:object="${hq}" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label">Título:</label>
+            <input type="text" class="form-control" id="title" th:field="*{title}" required />
+            <div class="invalid-feedback">Por favor, forneça um título.</div>
+        </div>
+        <div class="mb-3">
+            <label for="author" class="form-label">Autor:</label>
+            <input type="text" class="form-control" id="author" th:field="*{author}" required />
+            <div class="invalid-feedback">Por favor, forneça um autor.</div>
+        </div>
+        <div class="mb-3">
+            <label for="synopsis" class="form-label">Sinopse:</label>
+            <textarea class="form-control" id="synopsis" th:field="*{synopsis}"></textarea>
+            <div class="invalid-feedback">Por favor, forneça uma sinopse.</div>
+        </div>
+        <button type="submit" class="btn btn-danger">Salvar</button>
+    </form>
+    <a th:href="@{/hq/list}" class="btn btn-secondary mt-3">Voltar para a lista de HQs</a>
+</div>
+</body>
+</html>
