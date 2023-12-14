@@ -26,9 +26,6 @@ Certifique-se de ter as seguintes ferramentas instaladas em sua máquina antes d
 
 1.Clone este repositório.
 2.Navegue até o diretório da aplicação.
- ```bash
-cd hki```
+       ```cd hki```
 3.Execute o seguinte comando para construir e iniciar a aplicação.
-
- ```bash
-./mvnw spring-boot:run```
+ ```./mvnw spring-boot:run```
