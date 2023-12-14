@@ -21,3 +21,14 @@ Certifique-se de ter as seguintes ferramentas instaladas em sua máquina antes d
    spring.datasource.url=jdbc:postgresql://localhost:5432/hki_database
    spring.datasource.username=seu_usuario
    spring.datasource.password=sua_senha```
+
+##Executando a Aplicação
+
+1.Clone este repositório.
+2.Navegue até o diretório da aplicação.
+ ```bash
+cd hki```
+3.Execute o seguinte comando para construir e iniciar a aplicação.
+
+ ```bash
+./mvnw spring-boot:run```
